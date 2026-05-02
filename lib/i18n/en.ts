@@ -128,7 +128,7 @@ export const en: Dict = {
     emailDepts: [
       { label: 'Drop-Shipping & Label Change', email: 'jim@rainbowlogisticsus.com' },
       { label: 'Air Freight', email: 'leah@rainbowlogisticsus.com' },
-      { label: 'Sea Freight', email: 'zz@rainbowlogisticsus.com' },
+      { label: 'Sea Freight', email: 'jim@rainbowlogisticsus.com' },
       { label: 'Customer Service', email: 'cs@rainbowlogisticsus.com' },
     ],
     hoursLabel: 'Business Hours',

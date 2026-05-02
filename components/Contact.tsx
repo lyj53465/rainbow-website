@@ -41,7 +41,7 @@ export function Contact() {
                 <div>
                   <h3 className="text-xl mb-2 text-gray-900">{t.contact.phoneLabel}</h3>
                   <p className="text-gray-600">
-                    (828) 888-6668<br />
+                    +1 (828) 888-6668<br />
                     {t.contact.phoneText}
                   </p>
                 </div>

@@ -58,7 +58,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-400">
-          <p>&copy; {new Date().getFullYear()} {t.footer.copyright}</p>
+          <p>&copy; 2020 {t.footer.copyright}</p>
           <a href="/privacy" className="hover:text-white transition-colors text-sm">
             {t.footer.privacy}
           </a>

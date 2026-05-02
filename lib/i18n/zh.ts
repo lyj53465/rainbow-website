@@ -126,7 +126,7 @@ export const zh = {
     emailDepts: [
       { label: '代发换单', email: 'jim@rainbowlogisticsus.com' },
       { label: '空运部', email: 'leah@rainbowlogisticsus.com' },
-      { label: '海运部', email: 'zz@rainbowlogisticsus.com' },
+      { label: '海运部', email: 'jim@rainbowlogisticsus.com' },
       { label: '客服部', email: 'cs@rainbowlogisticsus.com' },
     ],
     hoursLabel: '营业时间',
