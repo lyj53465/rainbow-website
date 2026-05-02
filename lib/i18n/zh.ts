@@ -124,7 +124,7 @@ export const zh = {
     phoneText: '欢迎来电咨询',
     emailLabel: '邮箱',
     emailDepts: [
-      { label: '代发换单', email: 'jim@rainbowlogisticsus.com' },
+      { label: '代发换单', email: 'yu@rainbowlogisticsus.com' },
       { label: '空运部', email: 'leah@rainbowlogisticsus.com' },
       { label: '海运部', email: 'jim@rainbowlogisticsus.com' },
       { label: '客服部', email: 'cs@rainbowlogisticsus.com' },

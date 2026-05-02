@@ -126,7 +126,7 @@ export const en: Dict = {
     phoneText: 'Call us anytime',
     emailLabel: 'Email',
     emailDepts: [
-      { label: 'Drop-Shipping & Label Change', email: 'jim@rainbowlogisticsus.com' },
+      { label: 'Drop-Shipping & Label Change', email: 'yu@rainbowlogisticsus.com' },
       { label: 'Air Freight', email: 'leah@rainbowlogisticsus.com' },
       { label: 'Sea Freight', email: 'jim@rainbowlogisticsus.com' },
       { label: 'Customer Service', email: 'cs@rainbowlogisticsus.com' },
