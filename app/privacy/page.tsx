@@ -279,8 +279,10 @@ export default function PrivacyPolicy() {
             body: (
               <>
                 <p>For privacy questions, data requests, or concerns:</p>
-                <div className="mt-3 p-4 bg-gray-50 rounded border border-gray-200">
+                <div className="mt-3 p-4 bg-gray-50 rounded border border-gray-200 space-y-1">
                   <p><strong>Rainbow Logistics Inc.</strong></p>
+                  <p>Address: 415 S 7th Ave, City of Industry, CA 91746, United States</p>
+                  <p>Phone: <a href="tel:+18288886668" className="text-orange-600 hover:underline">(828) 888-6668</a></p>
                   <p>Email: <a href="mailto:privacy@rainbowlogisticsus.com" className="text-orange-600 hover:underline">privacy@rainbowlogisticsus.com</a></p>
                   <p>Website: <a href="https://www.rainbowlogisticsus.com" className="text-orange-600 hover:underline">www.rainbowlogisticsus.com</a></p>
                 </div>
@@ -292,8 +294,10 @@ export default function PrivacyPolicy() {
             body: (
               <>
                 <p>隐私问题、数据请求或反馈：</p>
-                <div className="mt-3 p-4 bg-gray-50 rounded border border-gray-200">
+                <div className="mt-3 p-4 bg-gray-50 rounded border border-gray-200 space-y-1">
                   <p><strong>Rainbow Logistics Inc.</strong></p>
+                  <p>地址：415 S 7th Ave, City of Industry, CA 91746, USA</p>
+                  <p>电话：<a href="tel:+18288886668" className="text-orange-600 hover:underline">(828) 888-6668</a></p>
                   <p>邮箱：<a href="mailto:privacy@rainbowlogisticsus.com" className="text-orange-600 hover:underline">privacy@rainbowlogisticsus.com</a></p>
                   <p>网站：<a href="https://www.rainbowlogisticsus.com" className="text-orange-600 hover:underline">www.rainbowlogisticsus.com</a></p>
                 </div>
