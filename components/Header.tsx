@@ -56,30 +56,24 @@ export function Header() {
                   >
                     {t.nav.serviceDetails}
                   </button>
-                  <a
-                    href="https://cs.rainbowlogisticsus.com/customer-prealert"
-                    target="_blank" rel="noopener noreferrer"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setIsServicesOpen(false)}
-                  >
-                    {t.nav.air}
-                  </a>
-                  <a
-                    href="https://cs.rainbowlogisticsus.com/driver-mobile"
-                    target="_blank" rel="noopener noreferrer"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setIsServicesOpen(false)}
-                  >
-                    {t.nav.driver}
-                  </a>
-                  <a
-                    href="https://cs.rainbowlogisticsus.com/"
-                    target="_blank" rel="noopener noreferrer"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setIsServicesOpen(false)}
-                  >
-                    {t.nav.platform}
-                  </a>
+                  <a href="https://cs.rainbowlogisticsus.com/customer-prealert" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsServicesOpen(false)}>{t.nav.air}</a>
+                  <a href="https://cs.rainbowlogisticsus.com/driver-mobile" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsServicesOpen(false)}>{t.nav.driver}</a>
+                  <a href="https://cs.rainbowlogisticsus.com/" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsServicesOpen(false)}>{t.nav.platform}</a>
+                  <a href="https://ocop.rainbowlogisticsus.com/client-mobile/login" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsServicesOpen(false)}>{t.nav.seaPrealert}</a>
+                  <a href="https://ocop.rainbowlogisticsus.com/warehouse-mobile/login" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsServicesOpen(false)}>{t.nav.partnerWarehouse}</a>
+                  <a href="https://ocop.rainbowlogisticsus.com/" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsServicesOpen(false)}>{t.nav.seaPlatform}</a>
                 </div>
               )}
             </div>
@@ -126,30 +120,24 @@ export function Header() {
                   >
                     {t.nav.serviceDetails}
                   </button>
-                  <a
-                    href="https://cs.rainbowlogisticsus.com/customer-prealert"
-                    target="_blank" rel="noopener noreferrer"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setIsMobileServicesOpen(false)}
-                  >
-                    {t.nav.air}
-                  </a>
-                  <a
-                    href="https://cs.rainbowlogisticsus.com/driver-mobile"
-                    target="_blank" rel="noopener noreferrer"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setIsMobileServicesOpen(false)}
-                  >
-                    {t.nav.driver}
-                  </a>
-                  <a
-                    href="https://cs.rainbowlogisticsus.com/"
-                    target="_blank" rel="noopener noreferrer"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setIsMobileServicesOpen(false)}
-                  >
-                    {t.nav.platform}
-                  </a>
+                  <a href="https://cs.rainbowlogisticsus.com/customer-prealert" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsMobileServicesOpen(false)}>{t.nav.air}</a>
+                  <a href="https://cs.rainbowlogisticsus.com/driver-mobile" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsMobileServicesOpen(false)}>{t.nav.driver}</a>
+                  <a href="https://cs.rainbowlogisticsus.com/" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsMobileServicesOpen(false)}>{t.nav.platform}</a>
+                  <a href="https://ocop.rainbowlogisticsus.com/client-mobile/login" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsMobileServicesOpen(false)}>{t.nav.seaPrealert}</a>
+                  <a href="https://ocop.rainbowlogisticsus.com/warehouse-mobile/login" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsMobileServicesOpen(false)}>{t.nav.partnerWarehouse}</a>
+                  <a href="https://ocop.rainbowlogisticsus.com/" target="_blank" rel="noopener noreferrer"
+                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                     onClick={() => setIsMobileServicesOpen(false)}>{t.nav.seaPlatform}</a>
                 </div>
               )}
             </div>
