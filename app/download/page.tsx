@@ -40,9 +40,11 @@ export default function DownloadPage() {
           {/* Title */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
-                🚛
-              </div>
+              <img
+                src="/tonglink-icon.png"
+                alt="TongLink"
+                className="w-16 h-16 rounded-2xl shadow-lg"
+              />
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 TongLink
               </h1>
