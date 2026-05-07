@@ -83,6 +83,12 @@ export function Header() {
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-purple-600 transition-colors">
               {t.nav.contact}
             </button>
+            <a
+              href="/download"
+              className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:opacity-90 transition-opacity shadow-sm"
+            >
+              {t.nav.download}
+            </a>
             <LanguageSwitch />
           </nav>
 
@@ -147,6 +153,13 @@ export function Header() {
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
               {t.nav.contact}
             </button>
+            <a
+              href="/download"
+              className="inline-block px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:opacity-90 transition-opacity shadow-sm text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t.nav.download}
+            </a>
           </nav>
         )}
       </div>

@@ -13,6 +13,7 @@ export const en: Dict = {
     seaPlatform: 'Sea Freight Platform',
     about: 'About Us',
     contact: 'Contact Us',
+    download: 'Download App',
   },
   hero: {
     title: 'Rainbow Logistics Inc',

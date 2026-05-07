@@ -11,6 +11,7 @@ export const zh = {
     seaPlatform: '海运工作平台',
     about: '关于我们',
     contact: '联系我们',
+    download: '下载 App',
   },
   hero: {
     title: 'Rainbow Logistics Inc',
