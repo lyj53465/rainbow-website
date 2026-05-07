@@ -49,11 +49,14 @@ export default function DownloadPage() {
                 TongLink
               </h1>
             </div>
-            <p className="text-lg text-gray-600">
-              Rainbow Logistics 团队协同 App
+            <p className="text-lg text-gray-700 font-medium">
+              友仓 · Rainbow 团队协同 APP
             </p>
             <p className="mt-1 text-sm text-gray-500">
-              Internal team app — 司机 / 仓库 / 调度 / 员工 / 空运
+              司机 / 仓库 / 调度 / 员工 / 空运 / 友仓 / 码头
+            </p>
+            <p className="mt-0.5 text-xs text-gray-400">
+              For internal team, partner warehouses &amp; terminals
             </p>
             <div className="mt-3 inline-flex items-center gap-2 text-xs text-gray-500">
               <span>Version {APP_VERSION}</span>
