@@ -2,20 +2,26 @@
 
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { useLang } from '@/lib/i18n/Context';
 import { LanguageSwitch } from './LanguageSwitch';
 
 export function Header() {
   const { t } = useLang();
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === '/';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
+  const goSection = (id: string) => {
+    setIsMenuOpen(false);
+    if (isHome) {
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push(`/#${id}`);
     }
   };
 
@@ -37,7 +43,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-purple-600 transition-colors">
+            <button onClick={() => goSection('home')} className="text-gray-700 hover:text-purple-600 transition-colors">
               {t.nav.home}
             </button>
             <div className="relative">
@@ -52,7 +58,7 @@ export function Header() {
                 <div className="absolute right-0 mt-2 w-56 bg-white shadow-lg rounded-md z-10">
                   <button
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => { scrollToSection('services'); setIsServicesOpen(false); }}
+                    onClick={() => { goSection('services'); setIsServicesOpen(false); }}
                   >
                     {t.nav.serviceDetails}
                   </button>
@@ -77,10 +83,10 @@ export function Header() {
                 </div>
               )}
             </div>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-purple-600 transition-colors">
+            <button onClick={() => goSection('about')} className="text-gray-700 hover:text-purple-600 transition-colors">
               {t.nav.about}
             </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-purple-600 transition-colors">
+            <button onClick={() => goSection('contact')} className="text-gray-700 hover:text-purple-600 transition-colors">
               {t.nav.contact}
             </button>
             <a
@@ -107,7 +113,7 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden pb-4 flex flex-col gap-4">
-            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
+            <button onClick={() => goSection('home')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
               {t.nav.home}
             </button>
             <div className="relative">
@@ -122,7 +128,7 @@ export function Header() {
                 <div className="mt-2 w-full bg-white shadow-lg rounded-md">
                   <button
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => { scrollToSection('services'); setIsMobileServicesOpen(false); }}
+                    onClick={() => { goSection('services'); setIsMobileServicesOpen(false); }}
                   >
                     {t.nav.serviceDetails}
                   </button>
@@ -147,10 +153,10 @@ export function Header() {
                 </div>
               )}
             </div>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
+            <button onClick={() => goSection('about')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
               {t.nav.about}
             </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
+            <button onClick={() => goSection('contact')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">
               {t.nav.contact}
             </button>
             <a
