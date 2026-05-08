@@ -23,7 +23,7 @@ const RELEASE_DATE = '2026-05-07';
 // EAS 输出的 APK 直链（每次构建会变）。新 build 后到 expo.dev/.../builds 复制
 const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/kG78TZgkcvnqee7dDyiS96.apk';
 // TestFlight 公测链接（External Group 审核通过 + Enable Public Link 后填）
-const IOS_TESTFLIGHT_URL = '';  // ← 待 Apple 审核通过后填
+const IOS_TESTFLIGHT_URL = 'https://testflight.apple.com/join/W56N3svT';
 // ============================================================
 
 const QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=';
@@ -152,6 +152,23 @@ export default function DownloadPage() {
                       <li>点上方按钮（或扫码）→ 接受测试邀请</li>
                       <li>装好后回桌面打开 TongLink</li>
                     </ol>
+                  </div>
+                  <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-800">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle size={14} className="mt-0.5 shrink-0" />
+                      <div>
+                        若所在地区 App Store 找不到 TestFlight，请访问{' '}
+                        <a
+                          href="https://ocop.rainbowlogisticsus.com/app"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline font-medium hover:text-amber-900"
+                        >
+                          详细安装指引
+                        </a>
+                        {' '}或联系客服协助。
+                      </div>
+                    </div>
                   </div>
                 </>
               ) : (
