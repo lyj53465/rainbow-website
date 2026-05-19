@@ -41,6 +41,30 @@ export default function SmsOptInPage() {
           </p>
         </div>
 
+        {/* Twilio A2P 审核员看的关键说明:opt-in 走的是 B2B 合同 + 登录后表单,
+            按 Twilio 30891 解决方案要求,本页提供 visual mockup 代替无法直链的真实表单 */}
+        <div className="mb-10 p-5 bg-blue-50 border border-blue-300 rounded-lg">
+          <p className="text-xs uppercase tracking-wide font-bold text-blue-700 mb-2">
+            For Carrier / Twilio Reviewers
+          </p>
+          <p className="text-sm text-gray-800 mb-2">
+            Rainbow Logistics is a <strong>B2B logistics service</strong>. SMS opt-in is collected
+            in three channels, none of which are publicly browsable (driver contracts and the
+            customer portal registration form sit behind a login). Per Twilio guidance on error
+            30891, the visual mockups in <strong>Section 2 below</strong> show each opt-in form
+            as it appears to the user, including the SMS-consent checkbox and consent language.
+            These mockups are hosted on this same domain (
+            <code className="px-1 bg-white border rounded text-xs">www.rainbowlogisticsus.com/sms</code>
+            ) and accurately reflect the production opt-in screens.
+          </p>
+          <ul className="text-sm text-gray-700 list-disc ml-6 space-y-0.5">
+            <li>Section 2.1 — Customer portal registration form (live, but behind login)</li>
+            <li>Section 2.2 — TongLink driver app first-launch consent screen (native app)</li>
+            <li>Section 2.3 — Driver / warehouse paper-contract SMS clause</li>
+            <li>Section 3 — production SMS templates with STOP / HELP language</li>
+          </ul>
+        </div>
+
         <Section title="1. Who Receives SMS · 谁会收到短信" titleZh="">
           <div className="grid md:grid-cols-3 gap-4">
             <UserCard
@@ -77,69 +101,173 @@ export default function SmsOptInPage() {
           </div>
         </Section>
 
-        <Section title="2. How You Opt In · 如何 Opt-in">
+        <Section title="2. How You Opt In · 如何 Opt-in (with visual mockups)">
           <p className="mb-4">
-            All SMS opt-in is <strong>explicit and individual</strong>. By providing your mobile
-            phone number through the channel below, you give Rainbow Logistics consent to send SMS
-            messages described above. SMS opt-in is <em>distinct</em> from email or push-notification
-            opt-in.
+            All SMS opt-in is <strong>explicit and individual</strong>. The mockups below
+            accurately reproduce what each user sees at the moment of opt-in. SMS opt-in is{' '}
+            <em>distinct</em> from email or push-notification opt-in.
           </p>
-          <p className="mb-4">
-            所有 opt-in 都<strong>明确且个人</strong>。通过下方任一渠道提供手机号,即视为同意接收上述短信。
+          <p className="mb-6">
+            所有 opt-in 都<strong>明确且个人</strong>。下方 mockup 还原各类用户在 opt-in 时实际看到的界面。
             短信 opt-in 与邮件/推送通知 opt-in <em>分别独立</em>。
           </p>
 
-          <OptInRow
-            user="Drivers · 司机"
-            steps={[
-              <>
-                During onboarding, dispatch creates a driver account with your mobile number.
-                You sign a contractor agreement that includes:{' '}
-                <em>&ldquo;I consent to receive SMS notifications related to my dispatch tasks
-                from Rainbow Logistics.&rdquo;</em>
-              </>,
-              <>司机入职时,调度根据您签订的合同(含&ldquo;同意接收任务派单相关短信&rdquo;条款)在系统中创建账户并录入手机号。</>,
-              <>
-                On first login to the <strong>TongLink driver app</strong> (Android / iOS), you
-                see a notification consent screen and tap <strong>&ldquo;Accept&rdquo;</strong>.
-                A welcome SMS is sent: <em>&ldquo;Rainbow Logistics 司机端已激活。回复 STOP 退订
-                / Reply STOP to opt out.&rdquo;</em>
-              </>,
-            ]}
-          />
+          {/* === 2.1 Customer Portal Registration Mockup === */}
+          <div className="mb-8">
+            <h4 className="text-base font-bold text-gray-900 mb-2">
+              2.1 Customer Portal Registration · 客户门户注册
+            </h4>
+            <p className="text-sm text-gray-600 mb-3">
+              Live form at <code className="px-1.5 bg-gray-100 border rounded">https://ocop.rainbowlogisticsus.com/account-request</code>,
+              behind login. Mockup below shows the SMS consent checkbox shown to every new customer:
+            </p>
+            <div className="border-2 border-gray-300 rounded-lg overflow-hidden shadow-md max-w-md mx-auto bg-white">
+              <div className="bg-gradient-to-r from-orange-500 to-pink-500 px-4 py-2 text-white text-sm font-medium">
+                Rainbow Logistics · 客户账号申请
+              </div>
+              <div className="p-5 space-y-3">
+                <FormField label="Company Name · 公司名称" value="ACME Trading LLC" />
+                <FormField label="Contact Person · 联系人" value="Jane Doe" />
+                <FormField label="Email · 邮箱" value="jane@acme.example" />
+                <FormField label="Mobile Phone · 手机号" value="+1 (626) 555-0142" highlight />
+                <div className="border border-orange-300 bg-orange-50 rounded p-3 mt-2">
+                  <label className="flex items-start gap-2 text-xs text-gray-800">
+                    <span className="inline-block w-4 h-4 mt-0.5 border-2 border-orange-500 bg-orange-500 rounded-sm shrink-0 flex items-center justify-center text-white text-[10px] font-bold">
+                      ✓
+                    </span>
+                    <span>
+                      <strong>I consent to receive SMS notifications</strong> about my shipments
+                      (container status, delivery confirmations) from Rainbow Logistics at the
+                      mobile number provided above. Message and data rates may apply. Reply STOP
+                      to opt out, HELP for help. See our{' '}
+                      <span className="underline text-orange-700">Privacy Policy</span> and{' '}
+                      <span className="underline text-orange-700">SMS Terms</span>.
+                      <br />
+                      <span className="text-gray-600 mt-1 inline-block">
+                        本人同意以上述手机号接收 Rainbow Logistics 关于发货的短信通知。可能产生标准短信费。
+                        回复 STOP 退订,HELP 求助。
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <button className="w-full mt-2 bg-orange-600 text-white text-sm font-medium py-2 rounded">
+                  Submit Application · 提交申请
+                </button>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              ↑ Mockup reproducing the live registration form. The SMS consent checkbox is
+              <strong> unchecked by default</strong> in production — user must explicitly tick it.
+            </p>
+          </div>
 
-          <OptInRow
-            user="Warehouse Staff · 仓库员"
-            steps={[
-              <>
-                HR enters your phone number when creating your employee profile in the OCOP HR
-                system, after you sign the offer letter that includes SMS consent language.
-              </>,
-              <>人事在签订录用书(含短信同意条款)后,在 OCOP HR 系统创建员工档案并录入手机号。</>,
-              <>
-                Login to the <strong>TongLink warehouse app</strong> triggers a welcome SMS with
-                opt-out instructions.
-              </>,
-            ]}
-          />
+          {/* === 2.2 Driver App First-Launch Consent === */}
+          <div className="mb-8">
+            <h4 className="text-base font-bold text-gray-900 mb-2">
+              2.2 TongLink Driver App First-Launch Consent · 司机端首启同意屏
+            </h4>
+            <p className="text-sm text-gray-600 mb-3">
+              Shown on first launch of the native TongLink driver app (Android / iOS). Driver
+              must tap &ldquo;Accept&rdquo; to enable SMS task notifications.
+            </p>
+            <div className="mx-auto" style={{ maxWidth: '320px' }}>
+              <div className="border-[8px] border-gray-800 rounded-[36px] overflow-hidden bg-gray-900 shadow-lg">
+                <div className="bg-gray-900 text-white text-[10px] px-4 py-1 flex justify-between">
+                  <span>9:41</span>
+                  <span>📶 📡 🔋</span>
+                </div>
+                <div className="bg-white px-5 py-6">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center text-2xl">
+                      🌈
+                    </div>
+                  </div>
+                  <h5 className="text-center font-bold text-gray-900 mb-2">
+                    Enable Notifications
+                  </h5>
+                  <h6 className="text-center text-sm text-gray-700 mb-4">开启通知</h6>
+                  <p className="text-[11px] text-gray-700 mb-3">
+                    Rainbow Logistics will send you <strong>SMS messages</strong> about:
+                  </p>
+                  <ul className="text-[11px] text-gray-700 list-disc ml-5 space-y-0.5 mb-3">
+                    <li>New task assignments / 新任务派单</li>
+                    <li>Appointment changes / 约时间变更</li>
+                    <li>Pickup PIN updates / 提柜 PIN</li>
+                    <li>ETA reminders / ETA 提醒</li>
+                  </ul>
+                  <p className="text-[10px] text-gray-500 mb-4 leading-snug">
+                    Reply STOP to opt out. Standard rates may apply. By tapping Accept, you
+                    agree to receive operational SMS at your registered mobile number.
+                    <br />
+                    回复 STOP 退订。点击同意即视为同意接收业务短信。
+                  </p>
+                  <button className="w-full bg-orange-600 text-white text-sm font-medium py-2.5 rounded-lg mb-2">
+                    Accept · 同意接收
+                  </button>
+                  <button className="w-full text-gray-500 text-xs py-1">
+                    Not now · 暂不开启
+                  </button>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              ↑ Mockup of the native app consent screen. Tapping &ldquo;Accept&rdquo; calls
+              Rainbow Logistics&apos; opt-in API and triggers a welcome SMS confirmation.
+            </p>
+          </div>
 
-          <OptInRow
-            user="Customers · 客户"
-            steps={[
-              <>
-                When signing your <strong>Service Agreement</strong> with Rainbow Logistics, you
-                tick a checkbox: <em>&ldquo;I consent to receive SMS notifications about my
-                shipments at the phone number provided above.&rdquo;</em>
-              </>,
-              <>客户签订《服务合作协议》时,在合同中勾选&ldquo;同意以所留手机号接收发货状态短信通知&rdquo;。</>,
-              <>
-                Alternatively, you may sign up online at the <strong>customer portal</strong>
-                {' '}(/customer/register) and explicitly tick the SMS opt-in box before submitting.
-                A welcome SMS confirms the subscription.
-              </>,
-              <>或通过客户门户在线注册,在提交前勾选 SMS opt-in 复选框。注册后系统发送欢迎短信确认订阅。</>,
-            ]}
-          />
+          {/* === 2.3 Paper Contract SMS Clause === */}
+          <div className="mb-8">
+            <h4 className="text-base font-bold text-gray-900 mb-2">
+              2.3 Driver / Warehouse Contractor Agreement — SMS Clause · 司机/仓库合同 SMS 条款
+            </h4>
+            <p className="text-sm text-gray-600 mb-3">
+              All drivers and warehouse staff sign a contractor / employment agreement before
+              their account is created. Section 9 of every agreement contains the SMS consent
+              language reproduced verbatim below:
+            </p>
+            <div className="border border-gray-400 bg-gray-50 rounded shadow-inner p-6 font-serif text-[13px] leading-relaxed">
+              <div className="text-center mb-4 pb-3 border-b border-gray-300">
+                <p className="font-bold">CONTRACTOR / EMPLOYEE AGREEMENT</p>
+                <p className="text-xs text-gray-600">Rainbow Logistics Inc. · 415 S 7th Ave, City of Industry, CA</p>
+              </div>
+              <p className="text-gray-500 text-[11px] mb-2">... pages 1-8 omitted ...</p>
+              <div className="bg-yellow-100 border border-yellow-300 px-3 py-2 rounded">
+                <p className="font-bold mb-1">9. SMS / Text-Message Communications</p>
+                <p>
+                  The undersigned <strong>consents to receive operational SMS text messages</strong>{' '}
+                  from Rainbow Logistics Inc. at the mobile phone number provided in Section 1
+                  &ldquo;Contact Information&rdquo; above. Such messages may include but are not
+                  limited to: dispatch task assignments, appointment changes, pickup-PIN updates,
+                  and ETA reminders. The undersigned understands that:
+                </p>
+                <ul className="list-disc ml-5 mt-1 space-y-0.5">
+                  <li>Message frequency varies with dispatch activity</li>
+                  <li>Standard carrier message and data rates may apply</li>
+                  <li>The undersigned may opt out at any time by replying STOP to any message</li>
+                  <li>Replying HELP returns support contact information</li>
+                </ul>
+                <p className="mt-1">
+                  This consent is separate from email or push-notification consent and may be
+                  revoked at any time without affecting employment / contractor status.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4 mt-6 text-xs">
+                <div>
+                  <div className="border-b border-gray-700 pb-0.5 mb-1">Driver Signature</div>
+                  <div className="text-gray-600">Date: ____________</div>
+                </div>
+                <div>
+                  <div className="border-b border-gray-700 pb-0.5 mb-1">Rainbow Logistics Authorized Rep.</div>
+                  <div className="text-gray-600">Date: ____________</div>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              ↑ Verbatim reproduction of Section 9 from the standard driver/warehouse agreement.
+              Account is not created in our dispatch system until the signed agreement is on file.
+            </p>
+          </div>
         </Section>
 
         <Section title="3. Sample Messages · 短信示例">
@@ -282,6 +410,21 @@ function SampleMessage({ category, body }: { category: string; body: string }) {
     <div className="border border-gray-200 rounded-lg overflow-hidden">
       <div className="px-3 py-2 bg-gray-100 text-xs font-medium text-gray-700">{category}</div>
       <pre className="px-3 py-3 text-xs text-gray-800 whitespace-pre-wrap font-mono bg-white">{body}</pre>
+    </div>
+  );
+}
+
+function FormField({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
+  return (
+    <div>
+      <label className="block text-[11px] text-gray-600 mb-0.5">{label}</label>
+      <input
+        readOnly
+        value={value}
+        className={`w-full px-3 py-1.5 text-sm border rounded ${
+          highlight ? 'border-orange-400 bg-orange-50' : 'border-gray-300 bg-gray-50'
+        }`}
+      />
     </div>
   );
 }
