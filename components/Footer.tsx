@@ -59,9 +59,17 @@ export function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-400">
           <p>&copy; 2020 {t.footer.copyright}</p>
-          <a href="/privacy" className="hover:text-white transition-colors text-sm">
-            {t.footer.privacy}
-          </a>
+          <div className="flex items-center gap-4 text-sm">
+            <a href="/privacy" className="hover:text-white transition-colors">
+              {t.footer.privacy}
+            </a>
+            <a href="/terms" className="hover:text-white transition-colors">
+              Terms · 服务条款
+            </a>
+            <a href="/sms" className="hover:text-white transition-colors">
+              SMS Opt-in · 短信订阅
+            </a>
+          </div>
         </div>
       </div>
     </footer>
