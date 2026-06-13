@@ -18,10 +18,10 @@ import { Footer } from '@/components/Footer';
 // ============================================================
 // ⚠️ 发布新版本时更新这 3 个常量
 // ============================================================
-const APP_VERSION = '1.3.4';
-const RELEASE_DATE = '2026-06-02';
+const APP_VERSION = '1.3.5';
+const RELEASE_DATE = '2026-06-12';
 // EAS 输出的 APK 直链（每次构建会变）。新 build 后到 expo.dev/.../builds 复制
-const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/bEz96BwUUNtGPMLSjbh6cZ.apk';
+const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/MGrnaKraAkPoPM9qHVDgPjDxFQWD22h4LslYflo5o6o.apk';
 // TestFlight 公测链接（External Group 审核通过 + Enable Public Link 后填）
 const IOS_TESTFLIGHT_URL = 'https://testflight.apple.com/join/W56N3svT';
 // ============================================================
