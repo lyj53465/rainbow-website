@@ -21,7 +21,7 @@ import { Footer } from '@/components/Footer';
 const APP_VERSION = '1.4.0';
 const RELEASE_DATE = '2026-06-29';
 // EAS 输出的 APK 直链（每次构建会变）。新 build 后到 expo.dev/.../builds 复制
-const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/_wzd3La_sLbeQikBj84L8iPwN3gBf4a244z9kS_fkDo.apk';
+const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/_QjNQ9Ubqm6lGxnOw0ZyckmhWhfBPXLO3sqsNodPqWw.apk';
 // TestFlight 公测链接（External Group 审核通过 + Enable Public Link 后填）
 const IOS_TESTFLIGHT_URL = 'https://testflight.apple.com/join/W56N3svT';
 // ============================================================
