@@ -20,6 +20,11 @@ import { Footer } from '@/components/Footer';
 // ============================================================
 const APP_VERSION = '1.4.1';
 const RELEASE_DATE = '2026-07-07';
+// 最近一次热更新(OTA)日期 + 更新内容。OTA 走 expo-updates, 打开 App 自动生效, 无需重装。
+const OTA_DATE = '2026-07-11';
+const WHATS_NEW = [
+  '员工端新增「扫码装车」：调出库单 → 扫托盘核验装车（整组一起装、可完成/未装提示）',
+];
 // EAS 输出的 APK 直链（每次构建会变）。新 build 后到 expo.dev/.../builds 复制
 const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/nbYWxEqnvhwF-JfSvaLzgK94hCyEkxYBO04S6MofBHU.apk';
 // TestFlight 公测链接（External Group 审核通过 + Enable Public Link 后填）
@@ -63,6 +68,25 @@ export default function DownloadPage() {
               <span>·</span>
               <span>{RELEASE_DATE}</span>
             </div>
+
+            {/* 最近更新 / What's new */}
+            {WHATS_NEW.length > 0 && (
+              <div className="mt-5 mx-auto max-w-md rounded-xl border border-gray-200 bg-gray-50 p-4 text-left">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-semibold text-gray-800">最近更新 · What&apos;s new</p>
+                  <span className="text-xs text-gray-400">{OTA_DATE}</span>
+                </div>
+                <ul className="mt-2 space-y-1">
+                  {WHATS_NEW.map((t, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-gray-600">
+                      <span className="text-green-600">•</span>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-2 text-[11px] text-gray-400">已安装的 App 打开会自动更新，无需重新下载 / Auto-updates on launch</p>
+              </div>
+            )}
           </div>
 
           {/* Cards */}
