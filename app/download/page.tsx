@@ -19,14 +19,15 @@ import { Footer } from '@/components/Footer';
 // ⚠️ 发布新版本时更新这 3 个常量
 // ============================================================
 const APP_VERSION = '1.4.1';
-const RELEASE_DATE = '2026-07-07';
+const RELEASE_DATE = '2026-07-20';
 // 最近一次热更新(OTA)日期 + 更新内容。OTA 走 expo-updates, 打开 App 自动生效, 无需重装。
-const OTA_DATE = '2026-07-11';
+const OTA_DATE = '2026-07-20';
 const WHATS_NEW = [
-  '员工端新增「扫码装车」：调出库单 → 扫托盘核验装车（整组一起装、可完成/未装提示）',
+  '司机端提重柜任务路线修正：从「码头 → 目的仓」显示（此前误显示成 仓→仓）',
+  '员工端「扫码装车」：调出库单 → 扫托盘核验装车（整组一起装、可完成/未装提示）',
 ];
 // EAS 输出的 APK 直链（每次构建会变）。新 build 后到 expo.dev/.../builds 复制
-const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/nbYWxEqnvhwF-JfSvaLzgK94hCyEkxYBO04S6MofBHU.apk';
+const ANDROID_APK_URL = 'https://expo.dev/artifacts/eas/-OXASMedDcPmkbuRY2rwpSTfGP2tOP6q35m94eX1LC0.apk';
 // TestFlight 公测链接（External Group 审核通过 + Enable Public Link 后填）
 const IOS_TESTFLIGHT_URL = 'https://testflight.apple.com/join/W56N3svT';
 // ============================================================
