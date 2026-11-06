@@ -10,7 +10,7 @@
  *   发新版本 = 把新 APK 覆盖到 EC2 的 ~/ocop-api/uploads/app/tonglink.apk，
  *   下载地址不变，本页只需更新 APP_VERSION / RELEASE_DATE / WHATS_NEW。
  *
- * iOS TestFlight Public Link 等审核通过后填到 IOS_TESTFLIGHT_URL。
+ * iOS 已上 App Store(2026-11-05, 非公开分发 Unlisted: 搜不到, 只能通过链接/二维码进), 链接填 IOS_APP_STORE_URL。
  */
 
 import { Download, Smartphone, AlertCircle, ExternalLink } from 'lucide-react';
@@ -21,7 +21,7 @@ import { Footer } from '@/components/Footer';
 // ⚠️ 发布新版本时更新这 3 个常量
 // ============================================================
 const APP_VERSION = '1.4.1';
-const RELEASE_DATE = '2026-09-14';
+const RELEASE_DATE = '2026-11-05';
 // 最近一次热更新(OTA)日期 + 更新内容。OTA 走 expo-updates, 打开 App 自动生效, 无需重装。
 const OTA_DATE = '2026-07-20';
 const WHATS_NEW = [
@@ -30,15 +30,15 @@ const WHATS_NEW = [
 ];
 // 自己服务器上的稳定直链（发新版覆盖同名文件即可，别再链 EAS 产物 —— 30 天过期）
 const ANDROID_APK_URL = 'https://api.rainbowlogisticsus.com/uploads/app/tonglink.apk';
-// TestFlight 公测链接（External Group 审核通过 + Enable Public Link 后填）
-const IOS_TESTFLIGHT_URL = 'https://testflight.apple.com/join/W56N3svT';
+// App Store 非公开链接（Unlisted：App Store 里搜不到，只能通过这条链接 / 二维码安装）
+const IOS_APP_STORE_URL = 'https://apps.apple.com/us/app/tonglink/id6766753548';
 // ============================================================
 
 const QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=';
 
 export default function DownloadPage() {
   const androidQr = QR_API + encodeURIComponent(ANDROID_APK_URL);
-  const iosQr = IOS_TESTFLIGHT_URL ? QR_API + encodeURIComponent(IOS_TESTFLIGHT_URL) : null;
+  const iosQr = IOS_APP_STORE_URL ? QR_API + encodeURIComponent(IOS_APP_STORE_URL) : null;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -144,56 +144,48 @@ export default function DownloadPage() {
                 </div>
                 <div>
                   <h2 className="text-lg font-semibold text-gray-900">iOS / iPhone</h2>
-                  <p className="text-xs text-gray-500">通过 Apple TestFlight 安装</p>
+                  <p className="text-xs text-gray-500">App Store 正式版 · 支持 iPhone / iPad</p>
                 </div>
               </div>
 
-              {IOS_TESTFLIGHT_URL ? (
+              {IOS_APP_STORE_URL ? (
                 <>
                   <a
-                    href={IOS_TESTFLIGHT_URL}
+                    href={IOS_APP_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
                   >
                     <ExternalLink size={18} />
-                    在 TestFlight 中打开
+                    在 App Store 下载 / Get on App Store
                   </a>
                   {iosQr && (
                     <div className="mt-4 flex items-center gap-4">
-                      <img src={iosQr} alt="TestFlight QR" className="w-28 h-28 border border-gray-200 rounded-lg" />
+                      <img src={iosQr} alt="App Store QR" className="w-28 h-28 border border-gray-200 rounded-lg" />
                       <div className="text-xs text-gray-500 leading-relaxed">
-                        手机扫码加入测试<br />
-                        Scan with your iPhone
+                        iPhone 相机扫码直达 App Store<br />
+                        Scan with your iPhone camera
                       </div>
                     </div>
                   )}
                   <div className="mt-5 rounded-lg bg-blue-50 border border-blue-200 p-3 text-xs text-blue-800">
                     <div className="flex items-start gap-2 mb-2">
                       <AlertCircle size={14} className="mt-0.5 shrink-0" />
-                      <strong>首次安装提示</strong>
+                      <strong>安装步骤 / How to install</strong>
                     </div>
                     <ol className="list-decimal pl-5 space-y-1">
-                      <li>App Store 搜「TestFlight」并安装</li>
-                      <li>用你常用的 Apple ID 登录 TestFlight</li>
-                      <li>点上方按钮（或扫码）→ 接受测试邀请</li>
-                      <li>装好后回桌面打开 TongLink</li>
+                      <li>用 iPhone 相机扫上方二维码，或在手机上点上方按钮</li>
+                      <li>打开 App Store 页面后点 <b>获取</b>（Get），按提示用 Face ID / 密码确认</li>
+                      <li>装好后回桌面打开 TongLink，用公司分配的账号登录</li>
+                      <li>以后有新版本 App Store 会自动更新，不用再回来下载</li>
                     </ol>
                   </div>
                   <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-800">
                     <div className="flex items-start gap-2">
                       <AlertCircle size={14} className="mt-0.5 shrink-0" />
                       <div>
-                        若所在地区 App Store 找不到 TestFlight，请访问{' '}
-                        <a
-                          href="https://ocop.rainbowlogisticsus.com/app"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline font-medium hover:text-amber-900"
-                        >
-                          详细安装指引
-                        </a>
-                        {' '}或联系客服协助。
+                        本 App 为<b>非公开发布</b>，在 App Store 里搜「TongLink」是搜不到的，只能通过本页二维码或链接安装。
+                        Apple ID 所在地区需为美国（US）；如提示「不可用」或遇到其他问题，请联系客服协助。
                       </div>
                     </div>
                   </div>
@@ -204,7 +196,7 @@ export default function DownloadPage() {
                   <p className="font-medium text-gray-900">即将上线 / Coming Soon</p>
                   <p className="mt-1 text-xs">
                     iOS 版正在 Apple 审核中，<br />
-                    审核通过后此处会显示 TestFlight 安装链接
+                    审核通过后此处会显示 App Store 安装链接
                   </p>
                 </div>
               )}
