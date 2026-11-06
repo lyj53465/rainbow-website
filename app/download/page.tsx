@@ -185,7 +185,7 @@ export default function DownloadPage() {
                       <AlertCircle size={14} className="mt-0.5 shrink-0" />
                       <div>
                         本 App 为<b>非公开发布</b>，在 App Store 里搜「TongLink」是搜不到的，只能通过本页二维码或链接安装。
-                        Apple ID 所在地区需为美国（US）；如提示「不可用」或遇到其他问题，请联系客服协助。
+                        任何地区的 Apple ID 都可以下载（中国 / 美国 / 香港等均可）；打开链接后如提示「不可用」，请把截图发给客服协助。
                       </div>
                     </div>
                   </div>
