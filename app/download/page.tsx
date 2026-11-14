@@ -20,8 +20,8 @@ import { Footer } from '@/components/Footer';
 // ============================================================
 // ⚠️ 发布新版本时更新这 2 个常量
 // ============================================================
-const APP_VERSION = '1.4.1';
-const RELEASE_DATE = '2026-11-05';
+const APP_VERSION = '1.4.2';
+const RELEASE_DATE = '2026-11-13';
 // 自己服务器上的稳定直链（发新版覆盖同名文件即可，别再链 EAS 产物 —— 30 天过期）
 const ANDROID_APK_URL = 'https://api.rainbowlogisticsus.com/uploads/app/tonglink.apk';
 // App Store 非公开链接（Unlisted：App Store 里搜不到，只能通过这条链接 / 二维码安装）
