@@ -8,7 +8,7 @@
  * 安卓走 APK 直发（兼容华为/小米/vivo 等无 Play 商店的机型）。
  * APK 托管在自己服务器（EAS 的构建产物 30 天就过期，不能直链）：
  *   发新版本 = 把新 APK 覆盖到 EC2 的 ~/ocop-api/uploads/app/tonglink.apk，
- *   下载地址不变，本页只需更新 APP_VERSION / RELEASE_DATE / WHATS_NEW。
+ *   下载地址不变，本页只需更新 APP_VERSION / RELEASE_DATE。
  *
  * iOS 已上 App Store(2026-11-05, 非公开分发 Unlisted: 搜不到, 只能通过链接/二维码进), 链接填 IOS_APP_STORE_URL。
  */
@@ -18,16 +18,10 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 // ============================================================
-// ⚠️ 发布新版本时更新这 3 个常量
+// ⚠️ 发布新版本时更新这 2 个常量
 // ============================================================
 const APP_VERSION = '1.4.1';
 const RELEASE_DATE = '2026-11-05';
-// 最近一次热更新(OTA)日期 + 更新内容。OTA 走 expo-updates, 打开 App 自动生效, 无需重装。
-const OTA_DATE = '2026-07-20';
-const WHATS_NEW = [
-  '司机端提重柜任务路线修正：从「码头 → 目的仓」显示（此前误显示成 仓→仓）',
-  '员工端「扫码装车」：调出库单 → 扫托盘核验装车（整组一起装、可完成/未装提示）',
-];
 // 自己服务器上的稳定直链（发新版覆盖同名文件即可，别再链 EAS 产物 —— 30 天过期）
 const ANDROID_APK_URL = 'https://api.rainbowlogisticsus.com/uploads/app/tonglink.apk';
 // App Store 非公开链接（Unlisted：App Store 里搜不到，只能通过这条链接 / 二维码安装）
@@ -72,24 +66,6 @@ export default function DownloadPage() {
               <span>{RELEASE_DATE}</span>
             </div>
 
-            {/* 最近更新 / What's new */}
-            {WHATS_NEW.length > 0 && (
-              <div className="mt-5 mx-auto max-w-md rounded-xl border border-gray-200 bg-gray-50 p-4 text-left">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold text-gray-800">最近更新 · What&apos;s new</p>
-                  <span className="text-xs text-gray-400">{OTA_DATE}</span>
-                </div>
-                <ul className="mt-2 space-y-1">
-                  {WHATS_NEW.map((t, i) => (
-                    <li key={i} className="flex gap-2 text-xs text-gray-600">
-                      <span className="text-green-600">•</span>
-                      <span>{t}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-2 text-[11px] text-gray-400">已安装的 App 打开会自动更新，无需重新下载 / Auto-updates on launch</p>
-              </div>
-            )}
           </div>
 
           {/* Cards */}
@@ -177,7 +153,7 @@ export default function DownloadPage() {
                       <li>用 iPhone 相机扫上方二维码，或在手机上点上方按钮</li>
                       <li>打开 App Store 页面后点 <b>获取</b>（Get），按提示用 Face ID / 密码确认</li>
                       <li>装好后回桌面打开 TongLink，用公司分配的账号登录</li>
-                      <li>以后有新版本 App Store 会自动更新，不用再回来下载</li>
+                      <li>以后有新内容打开 App 会自动获取，不用再回来下载</li>
                     </ol>
                   </div>
                   <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-800">
